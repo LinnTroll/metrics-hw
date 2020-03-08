@@ -4,7 +4,7 @@ This is a service for monitoring OS metrics and writing it in to database.
 Can work with any database supported by SQLAlchemy.
 Use kafka as message broker.
 
-##### Supported metrics:
+#### Supported metrics:
  - `cpu_metrics` - CPU utilisation, percentage
  - `mem_metrics` - Memory utilisation, percentage
  - `disk_metrics` - Disk usage, percentage
@@ -14,11 +14,11 @@ Each metrics also contains:
  - time, when metrics was wrote to database
  - hostname of machine, where metrics was collected
 
-##### Quick start:
+#### Quick start:
 
-`git clone https://github.com/LinnTroll/aiven-metrics-hw.git`
+`git clone https://github.com/LinnTroll/metrics-hw.git`
 
-`cd aiven-metrics-hw`
+`cd metrics-hw`
 
 Edit `.env` file:
 you need to fill connection parameters for connecting to kafka and database.
@@ -27,3 +27,13 @@ you need to fill connection parameters for connecting to kafka and database.
 
 This command should start 3 containers, that send their metrics to kafka topic.
 And one container, that read data form this topic and write it to database.
+
+#### Run tests and pylint:
+
+Run tests:
+
+`docker-compose -f docker-compose-develop.yaml run test`
+
+Run pylint:
+
+`docker-compose -f docker-compose-develop.yaml run lint`

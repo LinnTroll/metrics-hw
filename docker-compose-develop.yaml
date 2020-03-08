@@ -1,0 +1,20 @@
+version: '3'
+services:
+  lint:
+    build:
+      context: .
+      dockerfile: Dockerfile.develop
+    volumes:
+      - ./code:/code
+    env_file:
+      - .env
+    command: ["pylint", "code", "--ignore", "tests"]
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.develop
+    volumes:
+      - ./code:/code
+    env_file:
+      - .env
+    command: ["bash", "-c", "PYTHONPATH=/ python -m unittest"]
