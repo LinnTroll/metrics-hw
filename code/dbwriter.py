@@ -1,5 +1,6 @@
 """Worker for receiving data from queue and sva it to database."""
 import datetime
+import logging
 
 from model import MetricEvent
 from utils_db import get_db_session
@@ -8,6 +9,7 @@ from utils_kafka import get_subscriber
 
 def main():
     """Run worker."""
+    logging.getLogger().setLevel(logging.INFO)
     session = get_db_session()
     subscriber = get_subscriber()
 

@@ -10,6 +10,7 @@ from utils_kafka import get_publisher
 
 def main():
     """Run metrics client."""
+    logging.getLogger().setLevel(logging.INFO)
     hostname = platform.node()
     publisher = get_publisher()
 
