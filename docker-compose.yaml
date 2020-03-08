@@ -1,0 +1,20 @@
+version: '3'
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    volumes:
+      - ./code:/code
+    command: ["python", "client.py"]
+    env_file:
+      - .env
+  dbwriter:
+    build:
+      context: .
+      dockerfile: Dockerfile.dbwriter
+    volumes:
+      - ./code:/code
+    command: ["python", "dbwriter.py"]
+    env_file:
+      - .env

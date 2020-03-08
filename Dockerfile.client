@@ -1,0 +1,6 @@
+FROM python:3.8
+RUN mkdir /code
+WORKDIR /code
+ADD requirements_client.txt /code
+RUN pip install -r requirements_client.txt
+ADD ./code /code
