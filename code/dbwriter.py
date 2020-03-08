@@ -3,13 +3,14 @@ import datetime
 import logging
 
 from model import MetricEvent
-from utils_db import get_db_session
+from utils_db import get_db_session, create_table
 from utils_kafka import get_subscriber
 
 
 def main():
     """Run worker."""
     logging.getLogger().setLevel(logging.INFO)
+    create_table(MetricEvent)
     session = get_db_session()
     subscriber = get_subscriber()
 
